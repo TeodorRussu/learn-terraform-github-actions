@@ -1,0 +1,34 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "3.26.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.0.1"
+    }
+  }
+  required_version = ">= 1.1.0"
+
+  cloud {
+    organization = "example-org-763ea0"
+
+    workspaces {
+      name = "gh-actions-demo"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+locals {
+  mopi_bucket_name = "mopi-uploads-bucket"
+}
+
+# CONFIGURE S3 BUCKET
+resource "aws_s3_bucket" "mopi_bucket" {
+  bucket = local.mopi_bucket_name
+}
