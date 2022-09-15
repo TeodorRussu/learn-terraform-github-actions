@@ -24,11 +24,3 @@ provider "aws" {
   region = "us-east-1"
 }
 
-locals {
-  mopi_bucket_name = "mopi-qq-bucket"
-}
-
-# CONFIGURE S3 BUCKET
-resource "aws_s3_bucket" "mopi_bucket" {
-  bucket = local.mopi_bucket_name
-}
