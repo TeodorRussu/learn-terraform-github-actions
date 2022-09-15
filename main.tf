@@ -25,7 +25,7 @@ provider "aws" {
 }
 
 locals {
-  mopi_bucket_name = "mopi-uploads-bucket"
+  mopi_bucket_name = "mopi-qq-bucket"
 }
 
 # CONFIGURE S3 BUCKET
